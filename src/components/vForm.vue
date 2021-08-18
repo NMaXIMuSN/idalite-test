@@ -19,6 +19,7 @@
       label="Цена товара"
       v-model:value="price"
       placeholder="Введите цену"
+      number
     ></my-input>
     <my-button :disabled="name && urlImg && price ? false : true"
       >Добавить товар</my-button
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -38,6 +40,12 @@ export default {
   },
   methods: {
     addCard() {
+      this.$store.commit("addCard", {
+        name: this.name,
+        description: this.description,
+        urlImg: this.urlImg,
+        price: this.price,
+      });
       this.name = null;
       this.description = null;
       this.urlImg = null;
@@ -48,9 +56,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form{
-    background-color: #fff;
-    padding: 24px;
-    display: inline-block;
+.form {
+  background-color: #fff;
+  padding: 24px;
+  display: inline-block;
+  margin-right: 16px;
+  max-height: 440px;
 }
 </style>

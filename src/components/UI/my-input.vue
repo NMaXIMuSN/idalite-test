@@ -20,6 +20,10 @@
 export default {
   name: "my-input",
   props: {
+    number: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       type: String,
       reqired: true,
@@ -36,7 +40,8 @@ export default {
   emits: ["update:value"],
   methods: {
     emitInput(event) {
-      this.$emit("update:value", event.target.value);
+      let value = event.target.value;
+      this.$emit("update:value", value);
     },
   },
 };
