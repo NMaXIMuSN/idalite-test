@@ -47,4 +47,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.form{
+    background-color: #fff;
+    padding: 24px;
+    display: inline-block;
+}
+</style>
