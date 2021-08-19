@@ -40,11 +40,13 @@ export default {
   },
   methods: {
     addCard() {
+      this.$store.state.idCard+=1;
       this.$store.commit("addCard", {
         name: this.name,
         description: this.description,
         urlImg: this.urlImg,
-        price: this.price,
+        price: +this.price,
+        id: this.$store.state.idCard,
       });
       this.name = null;
       this.description = null;
