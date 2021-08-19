@@ -1,4 +1,5 @@
 <template>
+  <v-top></v-top>
   <main class="main">
     <div class="container">
       <v-form></v-form>
@@ -17,11 +18,13 @@
 import vForm from "./components/vForm.vue";
 import vCard from "./components/vCard.vue";
 import { mapState } from "vuex";
+import VTop from './components/vTop.vue';
 
 export default {
   components: {
     vForm,
     vCard,
+    VTop,
   },
   data() {
     return {

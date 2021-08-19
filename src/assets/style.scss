@@ -13,8 +13,6 @@ $main-bg-colot: #e5e5e5;
 }
 body {
   background-color: $main-bg-colot;
+  margin: 32px 32px 0;
 }
-.container {
-  max-width: auto;
-  margin: 0 32px;
-}
+

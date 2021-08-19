@@ -1,16 +1,17 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+import sort from "./modules/sort";
 
 export default createStore({
   state: {
-    card:[]
+    card: [],
   },
   mutations: {
-    addCard(state, card){
-      state.card.push(card)
-    }
+    addCard(state, card) {
+      state.card.push(card);
+    },
   },
-  actions: {
-  },
+  actions: {},
   modules: {
-  }
-})
+    sort,
+  },
+});
