@@ -3,7 +3,11 @@
     <div class="container">
       <v-form></v-form>
       <div class="main__wrapper">
-        <v-card v-for="(card, index) in cards" :key="index" :card="card"></v-card>
+        <div class="card__wrapper" v-for="(card, index) in cards" :key="index">
+          <transition appear name="spawn">
+            <v-card :card="card"></v-card
+          ></transition>
+        </div>
       </div>
     </div>
   </main>
@@ -33,14 +37,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main{
-  .container{
+.main {
+  .container {
     display: flex;
   }
-  &__wrapper{
+  &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    
   }
+}
+
+.spawn-enter-active {
+  transition: 0.5s ease-out;
+}
+.spawn-enter-from {
+  transform: translateY(20px);
+  opacity: 0;
 }
 </style>
