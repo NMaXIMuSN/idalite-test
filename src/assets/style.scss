@@ -1,7 +1,7 @@
 $button-bg-diseble: #eeeeee;
 $button-bg: #7bae73;
-
-$main-bg-colot: #e5e5e5;
+$body-bg-colot: rgba(255, 254, 251, 0.8);
+$main-bg-colot: #FFFEFB;
 
 *,
 *::after,
@@ -12,7 +12,7 @@ $main-bg-colot: #e5e5e5;
   font-family: "Source Sans Pro", sans-serif;
 }
 body {
-  background-color: $main-bg-colot;
+  background-color: $body-bg-colot;
   margin: 32px 32px 0;
 }
 
