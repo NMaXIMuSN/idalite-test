@@ -49,7 +49,7 @@ export default {
   border-radius: 4px;
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 134px;
+  width: 140px;
   text-align: center;
   position: relative;
   z-index: 1001;
@@ -81,7 +81,7 @@ export default {
     padding: 3px 16px;
     font-size: 13px;
     color: #b4b4b4;
-
+    width: 140px;
     cursor: pointer;
     &:hover {
       background: #e7e6e2;

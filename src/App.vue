@@ -6,9 +6,7 @@
       <div class="main__wrapper">
         <transition-group name="card-list">
           <div class="card__wrapper" v-for="card in sortCard" :key="card.id">
-            <transition appear name="spawn">
-              <v-card :card="card"></v-card
-            ></transition>
+            <v-card :card="card"></v-card>
           </div>
         </transition-group>
       </div>
@@ -41,7 +39,7 @@ export default {
       const card = [...this.cards];
       switch (this.$store.state.sort.sortCard) {
         case 0:
-          return card.sort((a, b) => a.id - b.id);;
+          return card.sort((a, b) => a.id - b.id);
         case 1:
           return card.sort((a, b) => a.price - b.price);
         case 2:
@@ -55,12 +53,12 @@ export default {
       }
     },
   },
-  mounted(){
-    if (localStorage.getItem('card'))
-      this.$store.commit('getCard', JSON.parse(localStorage.getItem('card')))
-    if (localStorage.getItem('idCard'))
-      this.$store.commit('getIdCard', +localStorage.getItem('idCard'))
-  }
+  mounted() {
+    if (localStorage.getItem("card"))
+      this.$store.commit("getCard", JSON.parse(localStorage.getItem("card")));
+    if (localStorage.getItem("idCard"))
+      this.$store.commit("getIdCard", +localStorage.getItem("idCard"));
+  },
 };
 </script>
 
@@ -78,11 +76,13 @@ export default {
 .card-list-move {
   transition: transform 0.8s ease;
 }
-
-.spawn-enter-active {
+.card-list-leave-active,
+.card-list-enter-active {
   transition: 0.5s ease-out;
 }
-.spawn-enter-from {
+
+.card-list-enter-from,
+.card-list-leave-to {
   transform: translateY(20px);
   opacity: 0;
 }
