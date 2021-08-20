@@ -14,6 +14,7 @@ export default {};
 <style lang="scss" scoped>
 .header {
     margin-bottom: 16px;
+    margin-right: 16px;
   .container {
     display: flex;
     justify-content: space-between;

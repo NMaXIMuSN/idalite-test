@@ -52,5 +52,8 @@ export default {
   width: 284px;
   height: 108px;
   max-width: 284px;
+  &::placeholder {
+    color: #b4b4b4;
+  }
 }
 </style>

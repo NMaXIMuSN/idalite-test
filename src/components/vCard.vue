@@ -54,7 +54,7 @@
     <div class="card__bottom">
       <h2 class="card__title">{{ card.name }}</h2>
       <div class="card__description">{{ card.description }}</div>
-      <div class="card__price">{{ card.price }}</div>
+      <div class="card__price">{{ card.price }} руб</div>
     </div>
   </div>
 </template>
@@ -91,13 +91,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/style.scss';
+@import "@/assets/style.scss";
 .card {
   display: inline-block;
-  margin-right: 16px;
-  margin-bottom: 16px;
-  width: 332px;
-  height: 423px;
+
   background: $main-bg-colot;
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04),
     0px 6px 10px rgba(0, 0, 0, 0.02);
@@ -146,7 +143,6 @@ export default {
     line-height: 20px;
     color: #3f3f3f;
     margin-bottom: 32px;
-    height: 80px;
   }
   &__price {
     font-weight: 600;
@@ -156,6 +152,9 @@ export default {
   }
   &__bottom {
     padding: 16px 16px 24px;
+    height: calc(100% - 200px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
   }
   &__loading {
     width: 45px;

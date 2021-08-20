@@ -1,15 +1,13 @@
 <template>
   <v-top></v-top>
   <main class="main">
-    <div class="container">
-      <v-form></v-form>
-      <div class="main__wrapper">
-        <transition-group name="card-list">
-          <div class="card__wrapper" v-for="card in sortCard" :key="card.id">
-            <v-card :card="card"></v-card>
-          </div>
-        </transition-group>
-      </div>
+    <v-form></v-form>
+    <div class="main__wrapper">
+      <transition-group name="card-list">
+        <!-- <div class="card__wrapper" > -->
+          <v-card v-for="card in sortCard" :key="card.id" :card="card"></v-card>
+        <!-- </div> -->
+      </transition-group>
     </div>
   </main>
 </template>
@@ -64,12 +62,13 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  .container {
-    display: flex;
-  }
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 332px 1fr;
   &__wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
   }
 }
 
