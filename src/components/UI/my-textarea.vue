@@ -2,7 +2,7 @@
   <label class="label">
     <span> {{ label }}</span>
   </label>
-  <textarea class="textarea" v-model="value" @input="emitInput" :placeholder="placeholder"> </textarea>
+  <textarea class="textarea" :value="modelValue" @input="emitInput" :placeholder="placeholder"> </textarea>
 </template>
 
 <script>
@@ -17,15 +17,15 @@ export default {
       type: String,
       reqired: true,
     },
-    value: {
+    modelValue: {
       type: String,
       reqired: true,
     },
   },
-  emits: ["update:value"],
+  emits: ["update:modelValue"],
   methods: {
     emitInput(event) {
-      this.$emit("update:value", event.target.value);
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };

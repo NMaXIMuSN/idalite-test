@@ -50,7 +50,7 @@
     <div class="card__bottom">
       <h2 class="card__title">{{ card.name }}</h2>
       <div class="card__description">{{ card.description }}</div>
-      <div class="card__price">{{ card.price }} руб</div>
+      <div class="card__price">{{ formatPrice }}</div>
     </div>
   </div>
 </template>
@@ -74,6 +74,9 @@ export default {
     },
   },
   computed: {
+    formatPrice() {
+      return `${this.card.price.toLocaleString("ru")} руб.`;
+    },
     isLoad() {
       return /^https?:\/\/.*\.(?:jpe?g|gif|png)$/gm.test(this.card.urlImg);
     },

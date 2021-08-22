@@ -4,14 +4,16 @@
   </label>
   <input
     class="input"
-    :class="{ input__validate: value === '' }"
+    :class="{ input__validate: valid }"
     type="text"
-    :value="value"
-    @input="emitInput"
-    @blur="value === null ? (value = '') : value"
+    :value="modelValue"
+    @input="emitInput($event)"
+    @blur="isValid"
     :placeholder="placeholder"
   />
-  <span class="input__bottom" :class="{ input__validate_bottom: value === '' }"
+  <span
+    class="input__bottom"
+    :class="{ input__validate_bottom: valid }"
     >Поле является обязательным</span
   >
 </template>
@@ -24,6 +26,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    modelModifiers: {
+      default: () => ({}),
+    },
     label: {
       type: String,
       reqired: true,
@@ -32,16 +37,36 @@ export default {
       type: String,
       reqired: true,
     },
-    value: {
-      type: String,
-      reqired: true,
-    },
+    modelValue: String,
   },
-  emits: ["update:value"],
+  emits: ["update:modelValue"],
+  data(){
+    return{
+      valid: false,
+    }
+  },
   methods: {
+    isValid(event){
+      if (event.target.value === "") this.valid = true 
+      else this.valid = false
+    },
     emitInput(event) {
+      this.isValid(event)
       let value = event.target.value;
-      this.$emit("update:value", value);
+      if (this.modelModifiers.isNumber) {
+        value = value.replace(/\s+/g, "");
+        const isOnlyNumbers = /^\d+$/.test(value)
+        if (value.length <= 0) {
+          value = "";
+        } else if (!isOnlyNumbers) {
+          event.target.value = this.modelValue;
+          return
+        } else {
+          value = new Intl.NumberFormat("ru").format(+value);
+        }
+      }
+
+      this.$emit("update:modelValue", value);
     },
   },
 };

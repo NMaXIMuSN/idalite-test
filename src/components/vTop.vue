@@ -20,6 +20,9 @@ export default {};
     font-size: 28px;
     line-height: 35px;
     color: #3f3f3f;
+    @media (max-width:440px) {
+      font-size: 21px;
+    }
   }
 }
 </style>

@@ -54,8 +54,6 @@ export default {
   mounted() {
     if (localStorage.getItem("card"))
       this.$store.commit("getCard", JSON.parse(localStorage.getItem("card")));
-    if (localStorage.getItem("idCard"))
-      this.$store.commit("getIdCard", +localStorage.getItem("idCard"));
   },
 };
 </script>

@@ -2,24 +2,23 @@
   <form class="form" @submit.prevent="addCard">
     <my-input
       label="Наименование товара"
-      v-model:value="name"
+      v-model="name"
       placeholder="Введите наименование товара"
     ></my-input>
     <my-textarea
       label="Описание товара"
-      v-model:value="description"
+      v-model="description"
       placeholder="Введите описание товара"
     ></my-textarea>
     <my-input
       label="Ссылка на изображение товара"
-      v-model:value="urlImg"
+      v-model="urlImg"
       placeholder="Введите ссылку"
     ></my-input>
     <my-input
       label="Цена товара"
-      v-model:value="price"
+      v-model.isNumber="price"
       placeholder="Введите цену"
-      number
     ></my-input>
     <my-button :disabled="name && urlImg && price ? false : true"
       >Добавить товар</my-button
@@ -31,26 +30,34 @@
 export default {
   data() {
     return {
-      name: null,
-      description: null,
-      urlImg: null,
-      price: null,
+      name: "",
+      description: "",
+      urlImg: "",
+      price: "",
     };
   },
   methods: {
+    validatPrice() {
+      this.price = "aw";
+    },
     addCard() {
       this.$store.state.idCard += 1;
       this.$store.commit("addCard", {
         name: this.name,
         description: this.description,
         urlImg: this.urlImg,
-        price: +this.price,
-        id: this.$store.state.idCard,
+        price: this.formatPrice,
+        id: new Date(),
       });
-      this.name = null;
-      this.description = null;
-      this.urlImg = null;
-      this.price = null;
+      this.name = "";
+      this.description = "";
+      this.urlImg = "";
+      this.price = "";
+    },
+  },
+  computed: {
+    formatPrice() {
+      return +this.price.replace(/\s/gm, "");
     },
   },
 };
