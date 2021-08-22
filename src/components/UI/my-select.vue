@@ -1,6 +1,11 @@
 <template>
   <div class="select__wrapper">
-    <div class="select" :class="{ select_active: show }" @click="show = !show">
+    <div
+      class="select"
+      ref="select"
+      :class="{ select_active: show }"
+      @click="show = !show"
+    >
       {{ textSort[valuseSort] }}
     </div>
     <transition name="sort">
@@ -37,6 +42,12 @@ export default {
       this.show = false;
       this.$store.commit("newSort", index);
     },
+  },
+  mounted() {
+    let vm = this;
+    document.addEventListener("click", (item) => {
+      if (item.target !== vm.$refs["select"]) vm.show = false;
+    });
   },
 };
 </script>
