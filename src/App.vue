@@ -1,15 +1,15 @@
 <template>
-  <v-top></v-top>
-  <main class="main">
-    <v-form></v-form>
-    <div class="main__wrapper">
-      <transition-group name="card-list">
-        <!-- <div class="card__wrapper" > -->
+  <div id="app">
+    <v-top></v-top>
+    <main class="main">
+      <v-form></v-form>
+      <div class="main__wrapper">
+        <transition-group name="card-list">
           <v-card v-for="card in sortCard" :key="card.id" :card="card"></v-card>
-        <!-- </div> -->
-      </transition-group>
-    </div>
-  </main>
+        </transition-group>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -61,14 +61,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main {
-  display: grid;
-  grid-gap: 16px;
-  grid-template-columns: 332px 1fr;
-  &__wrapper {
+#app {
+  max-width: 1376px;
+  margin: 0 auto;
+  display: block;
+  .main {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
+    grid-template-columns: 332px 1fr;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 16px;
+      @media (max-width: 1300px) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @media (max-width: 920px) {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }
 

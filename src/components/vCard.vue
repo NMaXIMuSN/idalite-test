@@ -34,22 +34,18 @@
       </svg>
     </div>
     <div class="card__top">
-      <div>
-        <img
-          v-if="loadingImg"
-          src="@/assets/img/loading.svg"
-          class="card__img card__loading"
-        />
-      </div>
-      <div>
-        <img
-          :style="`display: ${loadingImg ? 'none' : 'block'}`"
-          class="card__img"
-          :src="isLoad ? card.urlImg : require('@/assets/img/NOIMAGES.jpg')"
-          alt=""
-          @load="loadingImg = false"
-        />
-      </div>
+      <img
+        v-if="loadingImg"
+        src="@/assets/img/loading.svg"
+        class="card__img card__loading"
+      />
+      <img
+        :style="`display: ${loadingImg ? 'none' : 'block'}`"
+        class="card__img"
+        :src="isLoad ? card.urlImg : require('@/assets/img/NOIMAGES.jpg')"
+        alt=""
+        @load="loadingImg = false"
+      />
     </div>
     <div class="card__bottom">
       <h2 class="card__title">{{ card.name }}</h2>
@@ -76,11 +72,6 @@ export default {
     deleteCard() {
       this.$store.commit("deleteCard", this.card);
     },
-    a() {
-      console.log(1);
-      // this.loadingImg = false;
-      console.log();
-    },
   },
   computed: {
     isLoad() {
@@ -100,13 +91,6 @@ export default {
     0px 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
   position: relative;
-  &__top {
-    width: 332px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   &__delete {
     background: #ff8484;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -128,7 +112,7 @@ export default {
     transform: scale(1);
   }
   &__img {
-    width: 332px;
+    width: 100%;
     height: 200px;
   }
   &__title {

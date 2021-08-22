@@ -49,7 +49,7 @@ export default {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 10px 15px;
-  width: 284px;
+  min-width: 100%;
   height: 108px;
   max-width: 284px;
   &::placeholder {

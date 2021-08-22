@@ -23,7 +23,7 @@ export default {
   background: c.$button-bg;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  width: 284px;
+  min-width: 100%;
   transition: 0.5s;
   height: 36px;
   cursor: pointer;

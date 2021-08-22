@@ -78,8 +78,7 @@ export default {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   outline: none;
-  max-width: 284px;
-  min-width: 284px;
+  min-width: 100%;
   border: 1px solid transparent;
   margin-bottom: 4px;
   &::placeholder {
