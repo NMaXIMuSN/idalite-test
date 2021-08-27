@@ -1,28 +1,30 @@
 <template>
   <form class="form" @submit.prevent="addCard">
-    <my-input
-      label="Наименование товара"
-      v-model="name"
-      placeholder="Введите наименование товара"
-    ></my-input>
-    <my-textarea
-      label="Описание товара"
-      v-model="description"
-      placeholder="Введите описание товара"
-    ></my-textarea>
-    <my-input
-      label="Ссылка на изображение товара"
-      v-model="urlImg"
-      placeholder="Введите ссылку"
-    ></my-input>
-    <my-input
-      label="Цена товара"
-      v-model.isNumber="price"
-      placeholder="Введите цену"
-    ></my-input>
-    <my-button :disabled="name && urlImg && price ? false : true"
-      >Добавить товар</my-button
-    >
+    <div class="form__wrapper">
+      <my-input
+        label="Наименование товара"
+        v-model="name"
+        placeholder="Введите наименование товара"
+      ></my-input>
+      <my-textarea
+        label="Описание товара"
+        v-model="description"
+        placeholder="Введите описание товара"
+      ></my-textarea>
+      <my-input
+        label="Ссылка на изображение товара"
+        v-model="urlImg"
+        placeholder="Введите ссылку"
+      ></my-input>
+      <my-input
+        label="Цена товара"
+        v-model.isNumber="price"
+        placeholder="Введите цену"
+      ></my-input>
+      <my-button :disabled="name && urlImg && price ? false : true"
+        >Добавить товар</my-button
+      >
+    </div>
   </form>
 </template>
 

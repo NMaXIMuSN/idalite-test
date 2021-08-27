@@ -125,6 +125,13 @@ export default {
     color: #3f3f3f;
     margin-bottom: 16px;
   }
+  &__top{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &__description {
     font-size: 16px;
     line-height: 20px;
